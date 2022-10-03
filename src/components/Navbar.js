@@ -1,11 +1,29 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import '../styles/Navbar.css'
+import ReorderIcon from '@mui/icons-material/Reorder'
 
 function Navbar() {
+  const [toggled, setToggled] = useState(false)
+
+  const location = useLocation()
+  {
+    /*Run useEffect whenever page location changes */
+  }
+  useEffect(() => {
+    setToggled(false)
+  }, [location])
+
   return (
-    <div className="navbar">
+    <div className="navbar" id={toggled ? 'open' : 'closed'}>
       <div className="toggleButton">
-        <button></button>
+        <button
+          onClick={() => {
+            setToggled((prev) => !prev)
+          }}
+        >
+          <ReorderIcon />
+        </button>
       </div>
       <div className="links">
         <Link to="/"> Home </Link>
