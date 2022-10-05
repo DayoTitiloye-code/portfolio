@@ -7,9 +7,7 @@ function Navbar() {
   const [toggled, setToggled] = useState(false)
 
   const location = useLocation()
-  {
-    /*Run useEffect whenever page location changes */
-  }
+
   useEffect(() => {
     setToggled(false)
   }, [location])
